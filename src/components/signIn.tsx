@@ -13,6 +13,7 @@ function SignIn() {
       console.log(json[0]);
       handleSignIn(true);
       localStorage.setItem("user", JSON.stringify(json[0]));
+      localStorage.setItem("id", json[0]._id);
     });
   }
 
