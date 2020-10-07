@@ -1,0 +1,17 @@
+#budget-container {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* align-items: center; */
+}
+
+#income-container, #expense-container, #debt-container {
+  height: 80vh;
+  width: 400px;
+  border: solid black;
+  border-radius: 10px;
+  overflow: scroll;
+  margin-top: 6vh;
+  /* margin-left: 33%; */
+}
