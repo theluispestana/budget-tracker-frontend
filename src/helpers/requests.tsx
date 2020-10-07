@@ -2,6 +2,8 @@
 const baseUrl = "http://localhost:3001";
 const usersUrl = `${baseUrl}/users`;
 const incomesUrl = `${baseUrl}/incomes`;
+const expensesUrl = `${baseUrl}/expenses`;
+const debtsUrl = `${baseUrl}/debts`;
 
 // headers
 const headers = {
@@ -37,6 +39,18 @@ export const postUser = (email: string, name: string) => {
 
 export const getIncomes = (id: string) => {
   return fetch(incomesUrl + "/" + id)
+    .then(parseData)
+    .catch(catchError);
+};
+
+export const getExpenses = (id: string) => {
+  return fetch(expensesUrl + "/" + id)
+    .then(parseData)
+    .catch(catchError);
+};
+
+export const getDebts = (id: string) => {
+  return fetch(debtsUrl + "/" + id)
     .then(parseData)
     .catch(catchError);
 };
