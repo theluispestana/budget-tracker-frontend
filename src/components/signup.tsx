@@ -1,19 +1,25 @@
 import React from "react";
 import { postUser } from "../helpers/requests";
+import { Redirect } from "react-router-dom";
 
 function SignUp() {
   const [email, handleEmail] = React.useState("");
   const [name, handleName] = React.useState("");
+  const [signedUp, handleSignUp] = React.useState(false);
 
-  function handleSignUp(event: any) {
+  function handleFormSubmission(event: any) {
     event.preventDefault();
     console.log({ user: { email: email, name: name } });
 
-    postUser(email, name).then(console.log);
+    postUser(email, name).then((json) => {
+      handleSignUp(true);
+      localStorage.setItem("user", JSON.stringify(json));
+    });
   }
 
   return (
     <div>
+      {signedUp && <Redirect to="/budget" />}
       <h1>Sign Up</h1>
       <form>
         <input
@@ -32,7 +38,9 @@ function SignUp() {
           placeholder="Name"
         />
         <br />
-        <button onClick={(event) => handleSignUp(event)}>Sign Up</button>
+        <button onClick={(event) => handleFormSubmission(event)}>
+          Sign Up
+        </button>
       </form>
     </div>
   );
