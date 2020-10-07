@@ -35,12 +35,8 @@ export const postUser = (email: string, name: string) => {
     .catch(catchError);
 };
 
-export const getIncomes = (user: object) => {
-  return fetch(incomesUrl, {
-    method: "GET",
-    headers: headers,
-    body: JSON.stringify({ owner: user }),
-  })
+export const getIncomes = (id: string) => {
+  return fetch(incomesUrl + "/" + id)
     .then(parseData)
     .catch(catchError);
 };
