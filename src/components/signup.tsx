@@ -14,6 +14,7 @@ function SignUp() {
     postUser(email, name).then((json) => {
       handleSignUp(true);
       localStorage.setItem("user", JSON.stringify(json));
+      localStorage.setItem("id", json[0]._id);
     });
   }
 
