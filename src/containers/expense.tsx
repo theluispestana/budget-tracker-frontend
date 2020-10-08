@@ -37,7 +37,7 @@ function Expense() {
   return (
     <div id="expense-container">
       {console.log("showing all docs", expenseArr)}
-      <h1>expense component mounted</h1>
+      <h1>Expenses</h1>
       {expenseArr &&
         expenseArr.map((document) => (
           <InfoCard

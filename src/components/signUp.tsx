@@ -19,7 +19,7 @@ function SignUp() {
   }
 
   return (
-    <div>
+    <div id="sign-up-container">
       {signedUp && <Redirect to="/budget" />}
       <h1>Sign Up</h1>
       <form>

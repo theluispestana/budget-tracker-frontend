@@ -36,7 +36,7 @@ function Debt() {
 
   return (
     <div id="debt-container">
-      <h1>debt component mounted</h1>
+      <h1>Debts</h1>
       {debtArr &&
         debtArr.map((document) => (
           <InfoCard

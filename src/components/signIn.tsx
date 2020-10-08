@@ -18,7 +18,7 @@ function SignIn() {
   }
 
   return (
-    <div>
+    <div id="sign-in-container">
       {signedIn && <Redirect to="/budget" />}
       <h1>Sign In</h1>
       <form>

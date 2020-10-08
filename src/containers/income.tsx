@@ -39,7 +39,7 @@ function Income() {
 
   return (
     <div id="income-container">
-      <h1>income component mounted</h1>
+      <h1>Incomes</h1>
       {incomeArr &&
         incomeArr.map((document) => {
           return (
