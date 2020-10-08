@@ -78,7 +78,7 @@ function BudgetForm({
             <label>Interest: </label>
             <input
               type="number"
-              name="number"
+              name="interest"
               value={interest}
               onChange={(e) => handleChange(e)}
               placeholder="Interest"
