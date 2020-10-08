@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import InfoCard from "../components/infoCard";
-import { getDebts, postDebt } from "../helpers/requests";
+import { getExpenses, postExpense } from "../helpers/requests";
 import BudgetForm from "../components/budgetForm";
 
-function Debt() {
-  const [debtArr, setDebtArr] = useState<any[]>([]);
+function Expense() {
+  const [expenseArr, setExpenseArr] = useState<any[]>([]);
   const [formFields, setFormFields] = useState<any>({
     name: "",
     amount: 0,
-    interest: 0,
+    frequency: 0,
   });
 
   React.useEffect(() => {
-    getDebts(localStorage.getItem("id") || "{}").then((docs) => {
-      setDebtArr(docs);
+    getExpenses(localStorage.getItem("id") || "{}").then((docs) => {
+      setExpenseArr(docs);
     });
   }, []);
 
@@ -26,30 +26,30 @@ function Debt() {
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
-    postDebt({
+    postExpense({
       name: formFields.name,
       amount: formFields.amount,
-      interest: formFields.interest,
+      frequency: formFields.frequency,
       owner: JSON.parse(localStorage.getItem("user") || "{}"),
-    }).then((doc) => setDebtArr([...debtArr, doc.createdDebt]));
+    }).then((doc) => setExpenseArr([...expenseArr, doc.createdExpense]));
   };
 
   return (
-    <div id="debt-container">
-      <h1>debt component mounted</h1>
-      {debtArr &&
-        debtArr.map((document) => (
+    <div id="expense-container">
+      {console.log("showing all docs", expenseArr)}
+      <h1>expense component mounted</h1>
+      {expenseArr &&
+        expenseArr.map((document) => (
           <InfoCard
-            key={document._id}
             name={document.name}
             amount={document.amount}
-            interest={document.interest}
+            frequency={document.frequency}
           />
         ))}
       <BudgetForm
         name={formFields.name}
         amount={formFields.amount}
-        interest={formFields.interest}
+        frequency={formFields.frequency}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
@@ -57,4 +57,4 @@ function Debt() {
   );
 }
 
-export default Debt;
+export default Expense;

@@ -43,14 +43,42 @@ export const getIncomes = (id: string) => {
     .catch(catchError);
 };
 
+export const postIncome = (income: object) => {
+  return fetch(incomesUrl, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(income),
+  })
+    .then(parseData)
+    .catch(catchError);
+};
 export const getExpenses = (id: string) => {
   return fetch(expensesUrl + "/" + id)
     .then(parseData)
     .catch(catchError);
 };
 
+export const postExpense = (expense: object) => {
+  return fetch(expensesUrl, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(expense),
+  })
+    .then(parseData)
+    .catch(catchError);
+};
 export const getDebts = (id: string) => {
   return fetch(debtsUrl + "/" + id)
+    .then(parseData)
+    .catch(catchError);
+};
+
+export const postDebt = (debt: object) => {
+  return fetch(debtsUrl, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(debt),
+  })
     .then(parseData)
     .catch(catchError);
 };

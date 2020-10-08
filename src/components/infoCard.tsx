@@ -11,7 +11,6 @@ type document = {
 function InfoCard({ name, source, amount, frequency, interest }: document) {
   return (
     <div>
-      {console.log("testing infoCard")}
       <h1>mounted infoCard</h1>
       {name && <h1>{name}</h1>}
       {source && <h1>{source}</h1>}
