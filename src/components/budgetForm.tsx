@@ -31,9 +31,9 @@ function BudgetForm({
               value={name}
               onChange={(e) => handleChange(e)}
             />
+            <br />
           </>
         )}
-        <br />
         {source === undefined || (
           <>
             <label>Source: </label>
@@ -44,9 +44,9 @@ function BudgetForm({
               onChange={(e) => handleChange(e)}
               placeholder="Source"
             />
+            <br />
           </>
         )}
-        <br />
         {amount === undefined || (
           <>
             <label>Amount: </label>
@@ -57,9 +57,9 @@ function BudgetForm({
               onChange={(e) => handleChange(e)}
               placeholder="Amount"
             />
+            <br />
           </>
         )}
-        <br />
         {frequency === undefined || (
           <>
             <label>Frequency: </label>
@@ -70,9 +70,9 @@ function BudgetForm({
               onChange={(e) => handleChange(e)}
               placeholder="Frequency"
             />
+            <br />
           </>
         )}
-        <br />
         {interest === undefined || (
           <>
             <label>Interest: </label>
@@ -83,9 +83,9 @@ function BudgetForm({
               onChange={(e) => handleChange(e)}
               placeholder="Interest"
             />
+            <br />
           </>
         )}
-        <br />
         <button onClick={(e) => handleSubmit(e)}>Save</button>
       </form>
     </div>

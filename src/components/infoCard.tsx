@@ -10,13 +10,33 @@ type document = {
 
 function InfoCard({ name, source, amount, frequency, interest }: document) {
   return (
-    <div>
-      <h1>mounted infoCard</h1>
-      {name && <h1>{name}</h1>}
-      {source && <h1>{source}</h1>}
-      {amount && <h1>{amount}</h1>}
-      {frequency && <h1>{frequency}</h1>}
-      {interest && <h1>{interest}</h1>}
+    <div className="info-card">
+      {/* <h1>mounted infoCard</h1> */}
+      {name && (
+        <h3>
+          Name : <span>{name}</span>
+        </h3>
+      )}
+      {source && (
+        <h3>
+          Source: <span>{source}</span>
+        </h3>
+      )}
+      {amount && (
+        <h3>
+          Amount: <span>{amount}</span>
+        </h3>
+      )}
+      {frequency && (
+        <h3>
+          Frequency: <span>{frequency}</span>
+        </h3>
+      )}
+      {interest && (
+        <h3>
+          Interest: <span>{interest}</span>
+        </h3>
+      )}
     </div>
   );
 }
